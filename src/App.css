@@ -1,21 +1,26 @@
+/* Reset & Core Styles */
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   overflow-x: hidden;
   transition: background-color 1.5s ease, color 1.5s ease;
-
+  background: transparent;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 .app-container {
-  min-height: 1000vh;
+  min-height: 1100vh;
   width: 100vw;
   position: relative;
   transition: background-color 1.5s ease, color 1.5s ease;
+  z-index: 0;
 }
 
+/* Theme Modes */
 .sun-mode {
-   background: linear-gradient(to bottom, #62c2e9, #a0d8ef);
+  background: linear-gradient(to bottom, #62c2e9, #a0d8ef);
   color: #000;
 }
 
@@ -24,17 +29,16 @@ body {
   color: #ccc;
 }
 
-/* Clouds */
+/* Cloud Background */
 .sky-clouds {
   position: absolute;
   top: 0;
   left: 0;
   width: 200vw;
   height: 100vh;
-  z-index: 0;
+  z-index: -20;
   pointer-events: none;
 }
-
 
 .cloud {
   position: absolute;
@@ -65,25 +69,25 @@ body {
   0% {
     transform: translateX(0);
   }
-
   100% {
     transform: translateX(100vw);
   }
 }
 
+/* 3D Canvas Background */
 .canvas-wrapper {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1;
-  pointer-events: none;
+  z-index: -10;
 }
 
+/* Hero Section */
 .hero-info {
   position: absolute;
-  top:200px;
+  top: 200px;
   left: 40px;
   z-index: 10;
   max-width: 800px;
@@ -95,14 +99,15 @@ body {
   padding-top: 100px;
   padding-left: 20px;
   padding-right: 20px;
-  z-index: 2;
+  z-index: 10;
   position: relative;
 }
 
+/* Projects Section */
 .projects-section {
-  padding: 0px 20px;
-  z-index: 2;
+  padding: 0 20px;
   position: relative;
+  z-index: 10;
 }
 
 @keyframes fadeIn {
@@ -110,9 +115,18 @@ body {
     opacity: 0;
     transform: translateX(-50px);
   }
-
   100% {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* Reusable Utility */
+.z-foreground {
+  z-index: 10000;
+  position: relative;
+}
+
+.hidden {
+  display: none !important;
 }

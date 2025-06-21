@@ -9,6 +9,10 @@ import StatsModule from './components/statemodule';
 import AboutMe from './components/AboutMe';
 import Experience from './components/exp';
 import SkillSphere from './components/skill';
+import ContactForm from './components/contact';
+import Footer from './components/footer';
+
+
 function App() {
   const [isMoon, setIsMoon] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -57,7 +61,9 @@ function App() {
             <div className="cloud big" style={{ top: '90%', left: '45%' }} />
 
             <Experience isMoon={isMoon} />
-            <SkillSphere isMoon={isMoon}/>
+            <SkillSphere isMoon={isMoon} />
+            <ContactForm isMoon={isMoon} />
+            <Footer isMoon={isMoon} />
           </div>
         </>
       ) : (
@@ -71,9 +77,11 @@ function App() {
             <AboutMe isMoon={isMoon} />
             <ProjectBoxes isMoon={isMoon} />
             <Experience isMoon={isMoon} />
-            <SkillSphere isMoon={isMoon}/>
-
+            <SkillSphere isMoon={isMoon} />
+            <ContactForm isMoon={isMoon} />
+            <Footer isMoon={isMoon} />
           </div>
+          
         </>
       )}
     </div>

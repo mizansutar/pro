@@ -7,11 +7,11 @@ const AboutMe = ({ isMoon }) => {
   const [mousePos, setMousePos] = useState({ top: '50%', left: '50%' });
 
   const skills = [
-    { name: 'React.js', level: 90 },
-    { name: 'Node.js', level: 85 },
-    { name: 'MongoDB', level: 80 },
-    { name: 'C++', level: 75 },
-    { name: 'AI & ML', level: 70 }
+    { name: 'AI / ML / DL', level: 85 },
+    { name: 'Frontend Development', level: 90 },
+    { name: 'Backend Development', level: 88 },
+    { name: '.NET / C#/ JAVA', level: 80 },
+    { name: 'App Development', level: 78 }
   ];
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const AboutMe = ({ isMoon }) => {
   }, []);
 
   return (
-    <section className="about-me-section">
+    <section className="about-me-section" id="about">
       <div
         ref={containerRef}
         className={`about-me-container ${isMoon ? 'moon-mode' : 'sun-mode'}`}
@@ -40,40 +40,27 @@ const AboutMe = ({ isMoon }) => {
           style={{ top: mousePos.top, left: mousePos.left }}
         />
 
-        <div className="about-me-bubbles">
-          {Array.from({ length: 20 }).map((_, i) => (
-            <span key={i} style={{ '--i': i }}></span>
-          ))}
-        </div>
-
-        <div className="about-me-water realistic-water"></div>
-
         <div className="about-me-content">
           <div className="about-me-left">
             <h2>⚙️ About Me</h2>
             <p>
-              I’m Nicky, an engineering student in Computer Science, obsessed with exploring the edge of what’s possible.
-              I build systems that blend AI, IoT, Web, and Blockchain—not for hype, but for impact.
+              I’m Nicky, a Computer Science student pushing limits in AI, full-stack dev, and smart systems. I blend deep tech with real-world applications — solo.
             </p>
             <p>
-              From creating smart irrigation systems to designing next-gen social platforms, I architect full-stack solutions solo,
-              using tools like React, Node.js, MongoDB, C++, and ESP32.
-            </p>
-            <p>
-              I'm not just writing code—I’m building projects that solve real-world problems, with clean UX, fast performance, and scalable backends.
+              I build scalable, intelligent systems using MERN stack, .NET, and mobile frameworks, powered by C++, Python, and data-driven logic.
             </p>
             <h3>🚀 Current Focus:</h3>
             <ul>
-              <li>ONAC Project (Social + E-commerce Hybrid)</li>
-              <li>AI-powered personal assistant (Python + Blender)</li>
-              <li>Smart Robots (Plastic cleanup bots using YOLO & path planning)</li>
+              <li>ONAC Project – Social & Commerce Hybrid</li>
+              <li>AI Assistant – Blender + Python</li>
+              <li>Smart Bot – Sea Plastic Cleanup</li>
             </ul>
             <p className="about-quote">🔗 Let’s Build the Future</p>
             <p className="about-quote"><em>"Code like it matters—because it does."</em></p>
           </div>
 
           <div className="about-me-right">
-            <h3>🧠 My Skills</h3>
+            <h3>🧠 My Core Skill Areas</h3>
             {skills.map((skill, idx) => (
               <div key={idx} className="skill-bar">
                 <span>{skill.name}</span>
@@ -82,7 +69,7 @@ const AboutMe = ({ isMoon }) => {
                     className="fill"
                     style={{
                       '--level': `${skill.level}%`,
-                      animationDelay: `${idx * 1.5}s` // stagger delay
+                      animationDelay: `${idx * 0.4}s`
                     }}
                   />
                 </div>

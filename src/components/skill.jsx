@@ -84,7 +84,7 @@ const SkillCards = ({ isMoon }) => {
 
 
   return (
-    <section className={`skill-section ${isMoon ? 'moon-mode' : 'sun-mode'}`} ref={ref}>
+    <section className={`skill-section ${isMoon ? 'moon-mode' : 'sun-mode'}`} ref={ref} id='skills'>
       <hr />
       <h2 className="skill-title">Skills</h2>
       {Object.entries(categories).map(([category, skills]) => (

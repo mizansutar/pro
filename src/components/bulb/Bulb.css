@@ -33,3 +33,9 @@
 .crater.small { width: 10px; height: 10px; top: 12px; left: 15px; }
 .crater.mid   { width: 14px; height: 14px; top: 28px; left: 28px; }
 .crater.big   { width: 18px; height: 18px; top: 25px; left: 50px; }
+
+/* Lower z-index for Sun and Moon */
+.sun-moon-container {
+  position: absolute;
+  z-index: 1; /* Lower value */
+}

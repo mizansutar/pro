@@ -1,0 +1,193 @@
+:root {
+  /* NIGHT mode (bright/glass look) */
+  --card-bg-night: rgba(255, 255, 255, 0.08);      /* Glassy bright-dark blend */
+  --card-border-night: rgba(0, 255, 255, 0.6);      /* Aqua glow */
+  --header-color-night: #00e0ff;                   /* Bright cyan */
+  --role-color-night: #ffd6f5;                     /* Soft pastel pink */
+  --point-color-night: #f0f0f0;                    /* Light gray-white */
+  --particle-color-night: #00ffd580;               /* Subtle sci-fi particles */
+  --text-color-night: #ffffff;                     /* Bright white */
+
+
+  /* DAY mode (Full black look) */
+  --card-bg-day: rgba(0, 0, 0, 1);                   /* Pitch black */
+  --card-border-day: rgba(0, 255, 255, 0.6);
+  --header-color-day: #00ffff;                       /* Neon cyan */
+  --role-color-day: #ffccff;
+  --point-color-day: #e0e0e0;
+  --particle-color-day: #00ffd566;
+  --text-color-day: #e0e0e0;
+}
+
+/* Experience Section */
+.experience-section {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: transparent;
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+/* Particle Grid Background */
+.experience-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--particle-color) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Title */
+.experience-title {
+  font-size: 3rem;
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 60px;
+  letter-spacing: 1px;
+}
+
+/* Cards container */
+.experience-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 100px;
+}
+
+/* Card Styling */
+.realistic-card {
+  width: 340px;
+  padding: 24px;
+  border-radius: 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  animation: floatCard 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease;
+  will-change: transform;
+}
+
+/* Glowing rotating border */
+.realistic-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 2px;
+  background: linear-gradient(45deg, #00fff0, #0044ff, #00fff0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  animation: glowBorder 6s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Use variables in cards */
+.realistic-card h3 {
+  color: var(--header-color);
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+.realistic-card .role {
+  font-weight: 600;
+  color: var(--role-color);
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.realistic-card li {
+  margin-left: 20px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: var(--point-color);
+}
+
+/* Cursor glow effect */
+.cursor-glow {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  mix-blend-mode: screen;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .experience-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Animations */
+@keyframes floatCard {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glowBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Entry Animation */
+.fadeSlide {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 0.6s forwards;
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* DAY: black background, neon UI */
+.sun-mode {
+  --card-bg: var(--card-bg-day);
+  --card-border: var(--card-border-day);
+  --header-color: var(--header-color-day);
+  --role-color: var(--role-color-day);
+  --point-color: var(--point-color-day);
+  --particle-color: var(--particle-color-day);
+  --text-color: var(--text-color-day);
+}
+
+/* NIGHT: white cards, dark text */
+.moon-mode {
+  --card-bg: var(--card-bg-night);
+  --card-border: var(--card-border-night);
+  --header-color: var(--header-color-night);
+  --role-color: var(--role-color-night);
+  --point-color: var(--point-color-night);
+  --particle-color: var(--particle-color-night);
+  --text-color: var(--text-color-night);
+}

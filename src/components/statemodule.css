@@ -1,0 +1,151 @@
+/* ========== CSS FOR ADVANCED SEA-LIKE STAT CARDS (WITH MULTIPLE FISH & COLOR VARIATIONS) ========== */
+
+.sea-card-wrapper {
+  position: relative;
+  height: 220px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 6s ease-in-out infinite;
+  isolation: isolate;
+}
+
+/* Color Variants */
+.sea-card-wrapper:nth-child(1) { background: #001f3f; }
+.sea-card-wrapper:nth-child(2) { background: #002b55; }
+.sea-card-wrapper:nth-child(3) { background: #003b6f; }
+.sea-card-wrapper:nth-child(4) { background: #004c80; }
+
+/* Wave Top Shape */
+.sea-card-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 80px;
+  background: radial-gradient(circle at 50% 100%, #00d4ff 30%, transparent 60%);
+  animation: waveFlow 10s linear infinite;
+  opacity: 0.3;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Internal Water Ripple Background */
+.sea-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 30%, transparent 80%);
+  animation: slideWater 12s linear infinite;
+  z-index: 0;
+}
+
+/* Bubble Generator */
+.sea-bubbles {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.sea-bubbles span {
+  position: absolute;
+  bottom: -20px;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation: bubbleUp 6s ease-in infinite;
+  animation-delay: calc(var(--i) * -0.7s);
+  left: calc(var(--i) * 10%);
+}
+
+/* Glass Card Content */
+.sea-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Fish Animations */
+.fish {
+  position: absolute;
+  width: 30px;
+  height: 14px;
+  background: #ff9f43;
+  border-radius: 50% 50% 50% 0;
+  top: 60%;
+  left: -40px;
+  z-index: 4;
+  animation: fishSwim 8s linear infinite;
+}
+
+.fish::before {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 4px;
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 6px solid #ff9f43;
+}
+
+.fish.alt {
+  background: #00ffc3;
+  top: 70%;
+  animation: fishSwimAlt 10s linear infinite;
+}
+
+@keyframes slideWater {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes waveFlow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+@keyframes bubbleUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-220px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+@keyframes fishSwim {
+  0% { left: -40px; top: 60%; transform: rotateY(0deg); }
+  50% { top: 58%; }
+  100% { left: 100%; top: 60%; transform: rotateY(180deg); }
+}
+
+@keyframes fishSwimAlt {
+  0% { left: 100%; top: 70%; transform: rotateY(180deg); }
+  50% { top: 72%; }
+  100% { left: -40px; top: 70%; transform: rotateY(0deg); }
+}

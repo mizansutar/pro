@@ -1,0 +1,136 @@
+.hero-container {
+  position: relative;
+  margin: 0 auto;
+  padding: 0px 3px;
+  max-width: 1200px; /* Increased width */
+  text-align: left;
+  z-index: 1500;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.typing-line {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.word-highlight {
+  color: #ff6f61;
+  min-width: 240px;
+  display: inline-block;
+  text-align: center;
+}
+
+.description {
+  font-size: 1.3rem;
+  margin: 12px 0 24px;
+  font-style: italic;
+}
+
+.text-hero h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.text-hero h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn,
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+
+/* Primary button with gradient */
+.btn {
+  background: linear-gradient(135deg, #007bff, #00d4ff);
+  color: #fff;
+  border: none;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #0056b3, #0095cc);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+/* Icon buttons */
+.icon-btn {
+  background: #333;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.icon-btn:hover {
+  transform: scale(1.1);
+  background: #555;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Light/Dark Mode Colors */
+.sun-mode .hero-container {
+  color: #111;
+}
+
+.moon-mode .hero-container {
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .typing-line {
+    font-size: 2.2rem;
+  }
+
+  .text-hero h2,
+  .text-hero h3 {
+    font-size: 1.1rem;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+}
+
+/* Fade In */
+.fade-in {
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

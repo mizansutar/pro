@@ -1,5 +1,5 @@
 import React from 'react';
-import '../bulb/bulb.css';
+import './Bulb.css';
 import StarsRain from '../StarsRain';
 
 const SunMoon = ({ isMoon }) => (

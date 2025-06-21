@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './hero.css';
 import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa';
-import resume from './resume.pdf';
+
 
 const Hero = ({ isMoon }) => {
   const containerRef = useRef(null);
@@ -106,7 +106,7 @@ const descriptions = {
         <h2>Welcome to My Portfolio</h2>
         <h3>Explore Code, Intelligence, and Design</h3>
         <div className="buttons">
-          <a href={resume} className="btn" download>
+          <a  className="btn" download>
             <FaDownload /> Download Resume
           </a>
           <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="icon-btn">

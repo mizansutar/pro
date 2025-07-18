@@ -106,7 +106,7 @@ const descriptions = {
         <h2>Welcome to My Portfolio</h2>
         <h3>Explore Code, Intelligence, and Design</h3>
         <div className="buttons">
-          <a  className="btn" download href='/public/resume.pdf'>
+          <a  className="btn" download href='/public/CV.pdf'>
             <FaDownload /> Download Resume
           </a>
           <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="icon-btn">
